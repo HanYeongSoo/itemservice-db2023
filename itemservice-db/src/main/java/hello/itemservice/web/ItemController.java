@@ -32,6 +32,7 @@ public class ItemController {
         Item item = itemService.findById(itemId).get();
         model.addAttribute("item", item);
         return "item";
+        //테스트
     }
 
     @GetMapping("/add")
