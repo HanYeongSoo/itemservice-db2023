@@ -24,6 +24,7 @@ public class ItemController {
         List<Item> items = itemService.findItems(itemSearch);
         model.addAttribute("items", items);
         return "items";
+        //포크 테스트2
     }
 
     @GetMapping("/{itemId}")
