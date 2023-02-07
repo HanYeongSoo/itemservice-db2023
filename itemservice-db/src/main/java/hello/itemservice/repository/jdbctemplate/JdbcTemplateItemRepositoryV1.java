@@ -80,7 +80,21 @@ public class JdbcTemplateItemRepositoryV1 implements ItemRepository {
         Integer maxPrice = cond.getMaxPrice();
 
         String sql = "select id, item_name, price, quantity from item";
-        //동적 쿼리
+        //동적 쿼리 (검색 조건에 따라 쿼리가 달라져야 함)
+        /**
+         * 1. 검색 조건이 없음
+         *      - select id, item_name, price, quantity from item
+         * 2. 상품명으로 검색
+         *      - select id, item_name, price, quantity from item
+         *        where item_name like concat('%',?,'%')
+         * 3. 최대 가격으로 검색
+         *      - select id, item_name, price, quantity from item
+         *        where price <= ?
+         * 4. 상품명, 최대 가격 둘 다 검색
+         *      - select id, item_name, price, quantity from item
+         *        where item_name like concat('%',?,'%')
+         *        and price <= ?
+         */
         if (StringUtils.hasText(itemName) || maxPrice != null) {
             sql += " where";
         }
