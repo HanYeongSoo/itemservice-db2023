@@ -22,7 +22,6 @@ import javax.sql.DataSource;
 public class ItemServiceApplication {
 
 	/**
-	 * 내가 여기서 뭔가를 막 고쳤는데 누군가 develop에 머지를 다 해부렸네?
 	 * @param args
 	 */
 
