@@ -8,6 +8,8 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface SpringDataJpaItemRepository extends JpaRepository<Item, Long> {
+
+    //테스트111
     List<Item> findByItemNameLike(String itemName);
     List<Item> findByPriceLessThanEqual(Integer price);
     List<Item> findByItemNameLikeAndPriceLessThanEqual(String itemName, Integer price); // 쿼리메서드
